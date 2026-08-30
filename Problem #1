@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void PrintLine() {
+	cout << "--------------------------------------------------------------------------------------------------\n";
+}
+string Number_to_String(int number) {
+	if (number >= 10) {
+		 return to_string(number);
+	}
+	else {
+		return to_string(number) + " ";
+	}
+}
+void PrintMultiplicationOfNumber(int Number= 0) 
+{
+	if (Number == 0) {
+		cout << "     ";
+		Number = 1;
+	}
+	else {
+		cout << Number_to_String(Number) << " | ";
+	}
+	for (int i = 1; i <= 10; i++) {	
+		cout << Number_to_String(Number * i) << "     ";
+	}
+	cout << "\n";
+}
+void PrintTableMultiplication() {
+	PrintMultiplicationOfNumber(0);
+	PrintLine();
+	for (int i = 1; i <= 10; i++) {
+		PrintMultiplicationOfNumber(i);
+	}
+}
+int main()
+{ 
+	PrintTableMultiplication();
+}
