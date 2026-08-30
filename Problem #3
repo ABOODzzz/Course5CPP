@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int ReadPositiveNumber(string massage)
+{
+	int number;
+	do
+	{
+		cout << massage << endl;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+bool IsPerfectNumber(int number)
+{
+	int sum = 0;
+	for (int i = 1; i < number; i++)
+	{
+		if (number % i == 0)
+		{
+			sum += i;
+		}
+	}
+	return number == sum;
+}
+void PrintPerfectNumberOrNOt(int number)
+{
+	if (IsPerfectNumber(number))
+	{
+		cout << number << " Is Perfect \n";
+	}
+	else
+	{
+		cout << number << " Is Not Perfect \n";
+	}
+}
+
+int main()
+{
+	PrintPerfectNumberOrNOt(ReadPositiveNumber("Please Enter Positive number? "));
+	return 0;
+}
