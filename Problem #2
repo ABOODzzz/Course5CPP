@@ -1,0 +1,37 @@
+//2
+#include <iostream>
+
+
+using namespace std;
+
+int ReadPositiveNum(string mesage) {
+	int num; do { cout << mesage; cin >> num; 
+	} while (num <= 0);
+	return num;
+}
+
+bool IsItPrime(int i) {
+	if (i == 1)return false;
+	if (i % 2 == 0 && i != 2)return false;
+	if (i % 3 == 0 && i != 3) return false;
+	if (i % 5 == 0 && i != 5) return false;
+	if (i % 7 == 0 && i != 7) return false;
+	return true;
+}
+
+void PrintResultss(int num) {
+	cout << "these are the prime numbers from 1 until" << num << " : [";
+
+	for (int i = 1;i<=num;i++) {
+		if (IsItPrime(i)) cout << " " << i;
+		else continue;
+	}
+	cout << " ]" << endl;
+}
+
+
+
+int main() {
+	int num = ReadPositiveNum("enter num :");
+	PrintResultss(num);
+}
